@@ -1,70 +1,169 @@
-# Getting Started with Create React App
+🧾 AI-Powered Expense Tracker (React + LocalStorage + Speech Recognition)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clean, modern, and intelligent expense tracker built using React, featuring:
 
-## Available Scripts
+💬 AI-like Speech Input for adding expenses using voice
 
-In the project directory, you can run:
+📅 Monthly Insights & Charts (Chart.js)
 
-### `npm start`
+🎯 Category-wise analytics
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+💾 LocalStorage persistence
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🎨 Responsive, dashboard-style UI
 
-### `npm test`
+⚡ Fast, lightweight, no backend required
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project is built as part of my full-stack learning journey and demonstrates React fundamentals, state management, reducers, context API, analytics, UI design, and browser APIs.
 
-### `npm run build`
+----------------------------------------------
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🚀 Features
+✅ Add & Manage Expenses
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Add expense name, amount, category, and date
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Delete individual expenses
 
-### `npm run eject`
+Smooth UI with instant updates
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+🎙 AI-Powered Speech Input (Web Speech API)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Add expenses using your voice, example:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+“Add 200 rupees for groceries”
+“Spent 350 on travel”
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The system extracts:
+✔ amount
+✔ category
+✔ description
+Automatically converts it into an expense entry.
 
-## Learn More
+📊 Monthly Summary Dashboard
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Month selector
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Total monthly spending
 
-### Code Splitting
+Category-wise breakdown
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Bar chart visualization with Chart.js
 
-### Analyzing the Bundle Size
+📈 Advanced Insights
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Total spent
 
-### Making a Progressive Web App
+Highest category
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Daily averages
 
-### Advanced Configuration
+Smart analytics
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+💾 LocalStorage Saving
 
-### Deployment
+Your expenses remain saved even after page refresh or browser restart.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+🖥 Clean Dashboard Layout
 
-### `npm run build` fails to minify
+Left panel : Monthly summary + insights
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Right panel : Add expense + list with scrollbar
+
+Modern glass-card UI
+
+Responsive for all screen sizes
+
+----------------------------------------------
+
+🛠 Tech Stack
+Frontend
+
+React (useState, useReducer, useEffect, Context API)
+
+JavaScript ES6+
+
+Chart.js
+
+Web Speech API
+
+CSS3 (custom modern UI)
+
+Storage
+
+Browser LocalStorage
+
+----------------------------------------------
+
+📂 Project Structure
+src/
+│── components/
+│   ├── AddExpense.jsx
+│   ├── ExpenseList.jsx
+│   ├── MonthlySummary.jsx
+│   ├── Insights.jsx 
+│   └── SpeechInput.jsx
+│
+│── context/
+│   ├── ExpenseContext.js
+│   └── ExpenseReducer.js
+│
+│── utils/
+│   └── calculateMonthlySummary.js
+│
+│── hooks/
+│   └── useLocalStorage.js
+│
+│── App.jsx
+│── index.js
+│── styles.css
+
+----------------------------------------------
+
+▶️ How to Run Locally
+# Clone the repo
+git clone https://github.com/your-username/ai-expense-tracker.git
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+
+
+The app will open on:
+
+http://localhost:3000
+
+----------------------------------------------
+
+
+🧠 How the AI Speech Input Works
+
+This project uses the Web Speech API, which extracts text from voice and then applies:
+
+Amount detection (parseInt or RegEx)
+
+Category detection using predefined keywords
+
+Description extraction
+
+Auto-creation of expense objects
+
+This gives it an AI-powered experience without needing a backend or OpenAI API.
+
+----------------------------------------------
+
+📦 Future Enhancements
+
+Dark mode
+
+Export expenses as CSV / PDF
+
+Custom categories
+
+Budget alerts
+
+Trends over time (line charts)
+
+Integration with OpenAI for natural-language parsing

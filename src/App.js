@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useReducer } from "react";
+import ExpenseReducer from "./context/ExpenseReducer";
+import ExpenseContext from "./context/ExpenseContext";
+import useLocalStorage from "./hooks/useLocalStorage";
+
+import AddExpense from "./components/AddExpense";
+import ExpenseList from "./components/ExpenseList";
+import Insights from "./components/Insights";
+import MonthlySummary from "./components/MonthlySummary";
+import SpeechInput from "./components/SpeechInput";
+
+import "./styles.css";
 
 function App() {
+  const [savedExpenses, saveExpenses] = useLocalStorage("expenses", []);
+  const [state, dispatch] = useReducer(ExpenseReducer, savedExpenses);
+
+  // syncing reducer to localStorage
+  const persist = (action) => {
+    const updated = ExpenseReducer(state, action);
+    saveExpenses(updated);
+    dispatch(action);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ExpenseContext.Provider value={{ state, persist }}>
+      <div className="dashboard">
+        {/* LEFT SIDE PANEL*/}
+        <div className="left-panel">
+          <Insights />
+          <MonthlySummary />
+        </div>
+
+        {/* RIGHT SIDE PANEL*/}
+        <div className="right-panel">
+          <SpeechInput />
+          <AddExpense />
+          <ExpenseList />
+        </div>
+      </div>
+    </ExpenseContext.Provider>
   );
 }
 

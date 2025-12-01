@@ -19,6 +19,7 @@ This project is built as part of my full-stack learning journey and demonstrates
 ----------------------------------------------
 
 🚀 Features
+
 ✅ Add & Manage Expenses
 
 Add expense name, amount, category, and date
